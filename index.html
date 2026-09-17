@@ -1,723 +1,850 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>HIDE AND SEEK | Mystery Boxes</title>
+<title>HIDE AND SEEK | Mystery Box</title>
 
-  <style>
+<style>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #050505;
-      color: white;
-    }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #020817;
+    color: white;
+    line-height: 1.6;
+}
 
-    /* ================= HERO ================= */
+/* NAVBAR */
 
-    header {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 30px;
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(2, 8, 23, 0.96);
+    border-bottom: 1px solid #1267a8;
+    padding: 18px 7%;
+}
 
-      background:
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    color: #00bfff;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: white;
+}
+
+.nav-links a {
+    color: #b8dfff;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00c8ff;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+
+    background:
         radial-gradient(
-          circle at center,
-          #123c36,
-          #050505 65%
+            circle at top,
+            #064b7c,
+            transparent 45%
+        ),
+        #020817;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #00bfff;
+    border-radius: 30px;
+    color: #00c8ff;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 8vw, 90px);
+    line-height: 0.95;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #00c8ff;
+    text-shadow: 0 0 35px #008cff;
+}
+
+.hero p {
+    max-width: 720px;
+    margin: auto;
+    color: #a9bfd5;
+    font-size: 18px;
+}
+
+.buttons {
+    margin-top: 32px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    margin: 7px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    border: 1px solid #00bfff;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(
+        135deg,
+        #008cff,
+        #00d4ff
+    );
+    color: #00101c;
+    border: none;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(0,191,255,0.4);
+}
+
+
+/* SECTIONS */
+
+section {
+    padding: 75px 7%;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.title h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.title p {
+    color: #91a8c0;
+}
+
+
+/* PRICING */
+
+.pricing {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.price-card {
+    background: #071a34;
+    border: 1px solid #125487;
+    border-radius: 18px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.price-card:hover {
+    transform: translateY(-6px);
+    border-color: #00c8ff;
+    box-shadow: 0 10px 30px rgba(0,160,255,0.15);
+}
+
+.price-card h3 {
+    color: #00c8ff;
+    font-size: 29px;
+}
+
+.price-card p {
+    color: #91a8c0;
+    margin-top: 8px;
+}
+
+
+/* COLLECTION */
+
+.collection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.collection-card {
+    background: linear-gradient(
+        145deg,
+        #071a34,
+        #041126
+    );
+
+    border: 1px solid #125487;
+    border-radius: 18px;
+    padding: 35px 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.collection-card:hover {
+    transform: translateY(-6px);
+    border-color: #00c8ff;
+    box-shadow: 0 15px 35px rgba(0,160,255,0.16);
+}
+
+.icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.collection-card h3 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.collection-card p {
+    color: #91a8c0;
+    font-size: 14px;
+}
+
+
+/* CUSTOMIZATION */
+
+.custom-box {
+    max-width: 900px;
+    margin: auto;
+
+    background: #071a34;
+    border: 1px solid #125487;
+
+    border-radius: 20px;
+    padding: 45px 30px;
+
+    text-align: center;
+}
+
+.custom-box h3 {
+    color: #00c8ff;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.custom-price {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.custom-price span {
+    color: #00c8ff;
+}
+
+.custom-box p {
+    color: #9bb1c8;
+    max-width: 700px;
+    margin: auto;
+}
+
+
+/* ORDER INFORMATION */
+
+.info-box {
+    max-width: 850px;
+    margin: auto;
+    padding: 35px;
+
+    background: #071a34;
+    border: 1px solid #125487;
+
+    border-radius: 18px;
+    text-align: center;
+}
+
+.info-box h3 {
+    color: #00c8ff;
+    margin-bottom: 15px;
+}
+
+.info-box p {
+    color: #9bb1c8;
+}
+
+
+/* CONTACT */
+
+.contact {
+    text-align: center;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #071a34,
+            #020817
         );
+}
+
+.owner {
+    font-size: 20px;
+    margin-bottom: 22px;
+}
+
+.owner span {
+    color: #00c8ff;
+    font-weight: bold;
+}
+
+.instagram {
+    display: inline-block;
+
+    background: #071a34;
+    border: 1px solid #1479b7;
+
+    border-radius: 12px;
+
+    padding: 14px 20px;
+    margin: 8px;
+
+    color: white;
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.instagram:hover {
+    background: #0b284b;
+    border-color: #00c8ff;
+    transform: translateY(-3px);
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+
+    color: #718aa5;
+
+    border-top: 1px solid #123a5c;
+
+    font-size: 13px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .pricing {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    header h1 {
-      font-size: clamp(40px, 10vw, 75px);
-      letter-spacing: 8px;
-      color: #00ffd5;
+    .collection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
-      text-shadow:
-        0 0 10px #00ffd5,
-        0 0 30px #00ffd5,
-        0 0 60px #00ffd5;
+
+@media (max-width: 600px) {
+
+    .nav-links {
+        display: none;
     }
 
-    header p {
-      margin: 20px 0 30px;
-      font-size: 20px;
-      color: #ddd;
+    .pricing,
+    .collection {
+        grid-template-columns: 1fr;
     }
 
-    /* ================= BUTTON ================= */
-
-    .btn {
-      display: inline-block;
-      padding: 15px 30px;
-
-      border: none;
-      border-radius: 30px;
-
-      background: #00ffd5;
-      color: #000;
-
-      text-decoration: none;
-      font-weight: bold;
-
-      cursor: pointer;
-
-      transition: 0.3s;
-
-      box-shadow: 0 0 20px #00ffd5;
+    .hero h1 {
+        font-size: 50px;
     }
 
-    .btn:hover {
-      transform: scale(1.08);
-      background: white;
-      box-shadow: 0 0 30px white;
+    .hero p {
+        font-size: 16px;
     }
-
-    /* ================= SECTIONS ================= */
 
     section {
-      padding: 80px 8%;
-      text-align: center;
+        padding: 55px 5%;
     }
 
-    section h2 {
-      font-size: 36px;
-      margin-bottom: 45px;
+}
 
-      color: #00ffd5;
-
-      text-shadow:
-        0 0 15px #00ffd5;
-    }
-
-    /* ================= PRODUCTS ================= */
-
-    .products {
-      display: grid;
-
-      grid-template-columns:
-        repeat(
-          auto-fit,
-          minmax(230px, 1fr)
-        );
-
-      gap: 30px;
-    }
-
-    .card {
-      background: #101010;
-
-      padding: 15px;
-
-      border: 1px solid #00ffd5;
-      border-radius: 20px;
-
-      transition: 0.4s;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-
-      box-shadow:
-        0 0 30px #00ffd5;
-    }
-
-    .card img {
-      width: 100%;
-      height: 250px;
-
-      object-fit: cover;
-
-      border-radius: 15px;
-    }
-
-    .card h3 {
-      margin: 18px 0 8px;
-    }
-
-    .price {
-      color: #00ffd5;
-
-      font-size: 20px;
-
-      font-weight: bold;
-    }
-
-    /* ================= MYSTERY BOX ================= */
-
-    .mystery {
-      max-width: 600px;
-
-      margin: auto;
-
-      padding: 40px;
-
-      background: #101010;
-
-      border: 2px solid #00ffd5;
-
-      border-radius: 25px;
-
-      box-shadow:
-        0 0 35px rgba(0,255,213,0.3);
-    }
-
-    .mystery img {
-      width: 250px;
-      height: 250px;
-
-      object-fit: cover;
-
-      border-radius: 20px;
-
-      margin-bottom: 25px;
-
-      border: 2px solid #00ffd5;
-    }
-
-    .mystery h3 {
-      font-size: 28px;
-    }
-
-    #result {
-      min-height: 35px;
-
-      margin: 25px 0;
-
-      color: #00ffd5;
-
-      font-size: 21px;
-
-      font-weight: bold;
-    }
-
-    /* ================= PHOTO GALLERY ================= */
-
-    .gallery {
-      display: grid;
-
-      grid-template-columns:
-        repeat(
-          auto-fit,
-          minmax(180px, 1fr)
-        );
-
-      gap: 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 220px;
-
-      object-fit: cover;
-
-      border-radius: 15px;
-
-      border: 1px solid #222;
-
-      transition: 0.3s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.03);
-
-      box-shadow:
-        0 0 20px #00ffd5;
-    }
-
-    /* ================= ABOUT ================= */
-
-    .about {
-      max-width: 800px;
-
-      margin: auto;
-
-      color: #ccc;
-
-      font-size: 18px;
-
-      line-height: 1.8;
-    }
-
-    .highlight {
-      color: #00ffd5;
-
-      font-weight: bold;
-    }
-
-    /* ================= CONTACT ================= */
-
-    .contact-box {
-      max-width: 600px;
-
-      margin: auto;
-
-      padding: 40px;
-
-      background: #101010;
-
-      border-radius: 25px;
-
-      border: 1px solid #00ffd5;
-    }
-
-    .contact-box p {
-      color: #ccc;
-
-      margin-bottom: 25px;
-
-      line-height: 1.6;
-    }
-
-    /* ================= FOOTER ================= */
-
-    footer {
-      padding: 40px 20px;
-
-      text-align: center;
-
-      background: #020202;
-
-      border-top: 1px solid #222;
-
-      color: #aaa;
-    }
-
-    footer strong {
-      color: #00ffd5;
-    }
-
-    /* ================= MOBILE ================= */
-
-    @media (max-width: 600px) {
-
-      section {
-        padding: 60px 5%;
-      }
-
-      header h1 {
-        letter-spacing: 4px;
-      }
-
-      header p {
-        font-size: 16px;
-      }
-
-      .mystery {
-        padding: 25px;
-      }
-
-    }
-
-  </style>
+</style>
 </head>
 
 
 <body>
 
 
-  <!-- ================= HERO ================= -->
+<!-- NAVIGATION -->
 
-  <header>
+<nav>
 
-    <h1>
-      HIDE AND SEEK
-    </h1>
+<div class="nav">
 
-    <p>
-      🎁 Mystery Boxes • 🏏 Cricket • ⚡ Anime
-    </p>
+<div class="logo">
+HIDE <span>AND SEEK</span>
+</div>
 
-    <a
-      href="#products"
-      class="btn">
+<div class="nav-links">
 
-      EXPLORE NOW
+<a href="#collection">
+Collection
+</a>
 
-    </a>
+<a href="#pricing">
+Pricing
+</a>
 
-  </header>
+<a href="#custom">
+Customization
+</a>
 
+<a href="#contact">
+Order
+</a>
 
+</div>
 
-  <!-- ================= PRODUCTS ================= -->
+</div>
 
-  <section id="products">
+</nav>
 
-    <h2>
-      🔥 OUR COLLECTION
-    </h2>
 
 
-    <div class="products">
+<!-- HERO SECTION -->
 
+<header class="hero">
 
-      <div class="card">
+<div>
 
-        <img
-          src="1000042925.jpg"
-          alt="Anime Figure">
+<div class="badge">
+FIRST BATCH • MYSTERY BOX
+</div>
 
-        <h3>
-          ⚡ Anime Figure
-        </h3>
+<h1>
 
-        <p class="price">
-          ₹299+
-        </p>
+HIDE AND<br>
 
-      </div>
+<span>SEEK</span>
 
+</h1>
 
-      <div class="card">
+<p>
 
-        <img
-          src="1000042926.jpg"
-          alt="Anime Collection">
+Anime Figures • Action Figures • Cricket Figures
+• Mystery Boxes • Custom Figures
 
-        <h3>
-          ⚡ Anime Collection
-        </h3>
+</p>
 
-        <p class="price">
-          ₹299+
-        </p>
 
-      </div>
+<div class="buttons">
 
+<a
+href="#contact"
+class="btn btn-primary">
 
-      <div class="card">
+DM TO ORDER
 
-        <img
-          src="1000042922.jpg"
-          alt="Premium Figure">
+</a>
 
-        <h3>
-          🔥 Premium Figure
-        </h3>
 
-        <p class="price">
-          ₹499+
-        </p>
+<a
+href="#collection"
+class="btn">
 
-      </div>
+EXPLORE COLLECTION
 
+</a>
 
-      <div class="card">
+</div>
 
-        <img
-          src="1000042920.jpg"
-          alt="Rare Collectible">
+</div>
 
-        <h3>
-          🎁 Rare Collectible
-        </h3>
+</header>
 
-        <p class="price">
-          ₹499+
-        </p>
 
-      </div>
 
+<!-- COLLECTION -->
 
-    </div>
+<section id="collection">
 
-  </section>
+<div class="title">
 
+<h2>Our Collection</h2>
 
+<p>
+Discover what HIDE AND SEEK offers.
+</p>
 
-  <!-- ================= MYSTERY BOX ================= -->
+</div>
 
-  <section>
 
-    <h2>
-      🎲 WHAT'S INSIDE?
-    </h2>
+<div class="collection">
 
 
-    <div class="mystery">
+<div class="collection-card">
 
+<div class="icon">
+🎌
+</div>
 
-      <img
-        src="1000042925.jpg"
-        alt="HIDE AND SEEK Mystery Box">
+<h3>
+Anime Figures
+</h3>
 
+<p>
+Anime-inspired collectible figures
+for fans and collectors.
+</p>
 
-      <h3>
-        🎁 Mystery Box
-      </h3>
+</div>
 
 
-      <p id="result">
-        Click REVEAL to discover your surprise!
-      </p>
 
+<div class="collection-card">
 
-      <button
-        class="btn"
-        onclick="revealPrize()">
+<div class="icon">
+⚡
+</div>
 
-        🎁 REVEAL
+<h3>
+Action Figures
+</h3>
 
-      </button>
+<p>
+Detailed action and character
+figures for your collection.
+</p>
 
+</div>
 
-    </div>
 
-  </section>
 
+<div class="collection-card">
 
+<div class="icon">
+🏏
+</div>
 
-  <!-- ================= PHOTO GALLERY ================= -->
+<h3>
+Cricket Figures
+</h3>
 
-  <section>
+<p>
+Cricket-themed collectible figures
+for sports fans.
+</p>
 
-    <h2>
-      📸 OUR COLLECTION
-    </h2>
+</div>
 
 
-    <div class="gallery">
 
+<div class="collection-card">
 
-      <img
-        src="image-1789577224761.jpg"
-        alt="HIDE AND SEEK Product">
+<div class="icon">
+🎁
+</div>
 
+<h3>
+Mystery Boxes
+</h3>
 
-      <img
-        src="image-1789576887882.jpg"
-        alt="HIDE AND SEEK Product">
+<p>
+Exciting mystery boxes with
+different collectible figures.
+</p>
 
+</div>
 
-      <img
-        src="1000042920.jpg"
-        alt="HIDE AND SEEK Product">
 
+</div>
 
-      <img
-        src="1000042921.jpg"
-        alt="HIDE AND SEEK Product">
+</section>
 
 
-      <img
-        src="1000042922.jpg"
-        alt="HIDE AND SEEK Product">
 
+<!-- PRICING -->
 
-      <img
-        src="1000042923.jpg"
-        alt="HIDE AND SEEK Product">
+<section id="pricing">
 
+<div class="title">
 
-      <img
-        src="1000042924.jpg"
-        alt="HIDE AND SEEK Product">
+<h2>Mystery Box Pricing</h2>
 
+<p>
+Prices start from ₹99 and can go up according
+to your chosen budget.
+</p>
 
-      <img
-        src="1000042925.jpg"
-        alt="HIDE AND SEEK Product">
+</div>
 
 
-      <img
-        src="1000042926.jpg"
-        alt="HIDE AND SEEK Product">
+<div class="pricing">
 
 
-      <img
-        src="1000042927.jpg"
-        alt="HIDE AND SEEK Product">
+<div class="price-card">
 
+<h3>
+₹99+
+</h3>
 
-      <img
-        src="1000042928.jpg"
-        alt="HIDE AND SEEK Product">
+<p>
+Starter Mystery Box
+</p>
 
+</div>
 
-      <img
-        src="1000042929.jpg"
-        alt="HIDE AND SEEK Product">
 
 
-    </div>
+<div class="price-card">
 
-  </section>
+<h3>
+₹1000+
+</h3>
 
+<p>
+Premium Mystery Box
+</p>
 
+</div>
 
-  <!-- ================= ABOUT ================= -->
 
-  <section>
 
-    <h2>
-      ✨ ABOUT HIDE AND SEEK
-    </h2>
+<div class="price-card">
 
+<h3>
+₹2000+
+</h3>
 
-    <div class="about">
+<p>
+Collector Mystery Box
+</p>
 
-      <p>
+</div>
 
-        Welcome to
 
-        <span class="highlight">
-          HIDE AND SEEK
-        </span>
 
-        — a mystery-box store for collectors,
-        anime fans and cricket lovers.
+<div class="price-card">
 
-      </p>
+<h3>
+UNLIMITED
+</h3>
 
+<p>
+Custom Budget
+</p>
 
-      <br>
+</div>
 
 
-      <p>
+</div>
 
-        Every box contains a surprise.
+</section>
 
-        You never know what you're going
-        to discover until you open it! 🎁
 
-      </p>
 
-    </div>
+<!-- CUSTOMIZATION -->
 
-  </section>
+<section id="custom">
 
+<div class="title">
 
+<h2>
+Customization
+</h2>
 
-  <!-- ================= CONTACT ================= -->
+<p>
+Make your figure according to your idea.
+</p>
 
-  <section>
+</div>
 
-    <h2>
-      📩 ORDER NOW
-    </h2>
 
+<div class="custom-box">
 
-    <div class="contact-box">
+<h3>
+CUSTOM FIGURES AVAILABLE
+</h3>
 
 
-      <p>
+<div class="custom-price">
 
-        Want to order a mystery box
-        or collaborate with
-        HIDE AND SEEK?
+Starting from
+<span>₹399</span>
 
-      </p>
+</div>
 
 
-      <!-- INSTAGRAM BUTTON -->
+<p>
 
-      <a
-        class="btn"
+Want a specific anime character,
+cricketer, action figure, pose,
+theme or design?
 
-        href="https://www.instagram.com/hide_and_seeek_001?stkn=MXRpM2toMmhGdGJ3"
+Send your idea or reference through
+Instagram DM.
 
-        target="_blank"
+Final pricing depends on the
+customization requested.
 
-        rel="noopener noreferrer">
+</p>
 
-        📸 DM US ON INSTAGRAM
+</div>
 
-      </a>
+</section>
 
 
-    </div>
 
-  </section>
+<!-- ORDER INFORMATION -->
 
+<section>
 
+<div class="title">
 
-  <!-- ================= FOOTER ================= -->
+<h2>
+How To Order
+</h2>
 
-  <footer>
+</div>
 
 
-    <p>
+<div class="info-box">
 
-      © 2026
+<h3>
+Simple & Easy
+</h3>
 
-      <strong>
-        HIDE AND SEEK
-      </strong>
+<p>
 
-    </p>
+There is no online checkout or product
+selection on this website.
 
+For orders, availability, pricing,
+customization and complete details,
+simply contact us through Instagram DM.
 
-    <p style="margin-top:10px">
+Our team will provide you with all
+the required details there.
 
-      Owner:
+</p>
 
-      <strong>
-        ASLAM AZAD
-      </strong>
+</div>
 
-    </p>
+</section>
 
 
-    <p style="margin-top:10px">
 
-      🎁 Mystery • 🏏 Cricket • ⚡ Anime
+<!-- CONTACT -->
 
-    </p>
+<section id="contact" class="contact">
 
+<div class="title">
 
-  </footer>
+<h2>
+Ready To Order?
+</h2>
 
+<p>
 
+Contact us on Instagram for orders,
+customization and details.
 
-  <!-- ================= JAVASCRIPT ================= -->
+</p>
 
-  <script>
+</div>
 
-    function revealPrize() {
 
-      const prizes = [
+<div class="owner">
 
-        "🏏 You got a Cricket Figure!",
+Owner:
+<span>ASLAM AZAD</span>
 
-        "⚡ You got an Anime Figure!",
+</div>
 
-        "🔥 You got a Rare Collectible!",
 
-        "👑 You got a Premium Figure!",
 
-        "🎁 You got a Mystery Surprise!"
+<a
+class="instagram"
+href="https://www.instagram.com/tensa_zangetsu_012?stkn=MTVzY3Fod29mMnB6YQ=="
+target="_blank"
+rel="noopener noreferrer">
 
-      ];
+📸 @tensa_zangetsu_012
 
+</a>
 
-      const random = Math.floor(
-        Math.random() * prizes.length
-      );
 
 
-      document.getElementById(
-        "result"
-      ).textContent = prizes[random];
+<a
+class="instagram"
+href="https://www.instagram.com/hide_and_seeek_001?stkn=MXRpM2toMmhGdGJ3"
+target="_blank"
+rel="noopener noreferrer">
 
-    }
+📸 @hide_and_seeek_001
 
-  </script>
+</a>
+
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 HIDE AND SEEK
+
+<br>
+
+Mystery Box • Figures • Customization
+
+<br>
+
+Owner: ASLAM AZAD
+
+</footer>
 
 
 </body>
-
 </html>
